@@ -1,5 +1,7 @@
 package com.acme.service;
 
+import com.acme.model.Car;
+import com.googlecode.objectify.ObjectifyService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,6 +11,6 @@ import org.springframework.stereotype.Service;
 public class MyService {
 
     public String callMe() {
-        return "from service....";
+        return "from service: cars..." + String.valueOf(ObjectifyService.ofy().load().type(Car.class).count());
     }
 }

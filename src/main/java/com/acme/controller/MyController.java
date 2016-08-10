@@ -1,6 +1,8 @@
 package com.acme.controller;
 
+import com.acme.model.Car;
 import com.acme.service.MyService;
+import com.googlecode.objectify.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,7 @@ public class MyController {
     @RequestMapping(value = "/nest", method = RequestMethod.GET)
     public HttpEntity entity(@RequestParam(value = "param", required = false) String paramValue) {
         if (paramValue != null) {
+            Result<Key<Car>> car = ObjectifyService.ofy().save().entity(new Car(paramValue, 1));
             return ResponseEntity.ok().body("Received Param="+paramValue);
         }
         return ResponseEntity.ok().body("No parameter received. Calling service="+myService.callMe());

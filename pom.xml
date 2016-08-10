@@ -75,6 +75,12 @@
 		</dependency>
 
         <dependency>
+            <groupId>com.googlecode.objectify</groupId>
+            <artifactId>objectify</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-testing</artifactId>
             <version>${appengine.version}</version>
